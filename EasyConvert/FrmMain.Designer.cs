@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.PnlSourceImage = new System.Windows.Forms.Panel();
             this.BtnBrowseSourceImage = new System.Windows.Forms.Button();
             this.TxtSourceImageName = new System.Windows.Forms.TextBox();
@@ -37,11 +39,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtResultSavePath = new System.Windows.Forms.TextBox();
             this.BtnBrowseResultSaveFolder = new System.Windows.Forms.Button();
-            this.BtnShowResultImage = new System.Windows.Forms.Button();
+            this.BtnShowResultsFolder = new System.Windows.Forms.Button();
             this.BtnConvert = new System.Windows.Forms.Button();
             this.LbConvertStatus = new System.Windows.Forms.Label();
+            this.FbdSaveFolder = new System.Windows.Forms.FolderBrowserDialog();
+            this.TxtResultImageName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ErrMain = new System.Windows.Forms.ErrorProvider(this.components);
+            this.OfdBrowseImage = new System.Windows.Forms.OpenFileDialog();
             this.PnlSourceImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbSourceImagePreview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrMain)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlSourceImage
@@ -75,6 +83,7 @@
             this.BtnBrowseSourceImage.TabIndex = 0;
             this.BtnBrowseSourceImage.Text = "Browse Image";
             this.BtnBrowseSourceImage.UseVisualStyleBackColor = false;
+            this.BtnBrowseSourceImage.Click += new System.EventHandler(this.BtnBrowseSourceImage_Click);
             // 
             // TxtSourceImageName
             // 
@@ -102,6 +111,7 @@
             this.PbSourceImagePreview.Location = new System.Drawing.Point(138, 13);
             this.PbSourceImagePreview.Name = "PbSourceImagePreview";
             this.PbSourceImagePreview.Size = new System.Drawing.Size(213, 130);
+            this.PbSourceImagePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PbSourceImagePreview.TabIndex = 0;
             this.PbSourceImagePreview.TabStop = false;
             // 
@@ -175,28 +185,29 @@
             this.BtnBrowseResultSaveFolder.TabIndex = 2;
             this.BtnBrowseResultSaveFolder.Text = "...";
             this.BtnBrowseResultSaveFolder.UseVisualStyleBackColor = false;
+            this.BtnBrowseResultSaveFolder.Click += new System.EventHandler(this.BtnBrowseResultSaveFolder_Click);
             // 
-            // BtnShowResultImage
+            // BtnShowResultsFolder
             // 
-            this.BtnShowResultImage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnShowResultImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnShowResultImage.Enabled = false;
-            this.BtnShowResultImage.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnShowResultImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.BtnShowResultImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.BtnShowResultImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShowResultImage.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnShowResultImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.BtnShowResultImage.Location = new System.Drawing.Point(384, 318);
-            this.BtnShowResultImage.Name = "BtnShowResultImage";
-            this.BtnShowResultImage.Size = new System.Drawing.Size(119, 35);
-            this.BtnShowResultImage.TabIndex = 3;
-            this.BtnShowResultImage.Text = "Show Result";
-            this.BtnShowResultImage.UseVisualStyleBackColor = false;
+            this.BtnShowResultsFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnShowResultsFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnShowResultsFolder.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnShowResultsFolder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.BtnShowResultsFolder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.BtnShowResultsFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShowResultsFolder.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnShowResultsFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.BtnShowResultsFolder.Location = new System.Drawing.Point(384, 318);
+            this.BtnShowResultsFolder.Name = "BtnShowResultsFolder";
+            this.BtnShowResultsFolder.Size = new System.Drawing.Size(119, 35);
+            this.BtnShowResultsFolder.TabIndex = 3;
+            this.BtnShowResultsFolder.Text = "Show Results";
+            this.BtnShowResultsFolder.UseVisualStyleBackColor = false;
+            this.BtnShowResultsFolder.Click += new System.EventHandler(this.BtnShowResultImage_Click);
             // 
             // BtnConvert
             // 
-            this.BtnConvert.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BtnConvert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnConvert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnConvert.Enabled = false;
             this.BtnConvert.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -211,6 +222,7 @@
             this.BtnConvert.TabIndex = 1;
             this.BtnConvert.Text = "Convert";
             this.BtnConvert.UseVisualStyleBackColor = false;
+            this.BtnConvert.Click += new System.EventHandler(this.BtnConvert_Click);
             // 
             // LbConvertStatus
             // 
@@ -223,27 +235,75 @@
             this.LbConvertStatus.Size = new System.Drawing.Size(0, 27);
             this.LbConvertStatus.TabIndex = 5;
             // 
+            // FbdSaveFolder
+            // 
+            this.FbdSaveFolder.Description = "Choose where to save converted images.";
+            this.FbdSaveFolder.RootFolder = System.Environment.SpecialFolder.MyComputer;
+            // 
+            // TxtResultImageName
+            // 
+            this.TxtResultImageName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtResultImageName.BackColor = System.Drawing.Color.White;
+            this.TxtResultImageName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtResultImageName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtResultImageName.ForeColor = System.Drawing.Color.Black;
+            this.TxtResultImageName.Location = new System.Drawing.Point(307, 239);
+            this.TxtResultImageName.Name = "TxtResultImageName";
+            this.TxtResultImageName.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.TxtResultImageName.Size = new System.Drawing.Size(152, 29);
+            this.TxtResultImageName.TabIndex = 6;
+            this.TxtResultImageName.WordWrap = false;
+            this.TxtResultImageName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtResultImageName_Validating);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.label3.Location = new System.Drawing.Point(233, 239);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 27);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Name:";
+            // 
+            // ErrMain
+            // 
+            this.ErrMain.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.ErrMain.ContainerControl = this;
+            // 
+            // OfdBrowseImage
+            // 
+            this.OfdBrowseImage.Title = "Browse Image";
+            // 
             // FrmMain
             // 
+            this.AcceptButton = this.BtnConvert;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(515, 360);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TxtResultImageName);
             this.Controls.Add(this.LbConvertStatus);
             this.Controls.Add(this.BtnConvert);
-            this.Controls.Add(this.BtnShowResultImage);
+            this.Controls.Add(this.BtnShowResultsFolder);
             this.Controls.Add(this.BtnBrowseResultSaveFolder);
             this.Controls.Add(this.TxtResultSavePath);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CbTargetImageFormat);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PnlSourceImage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(531, 399);
             this.Name = "FrmMain";
             this.Text = "EasyConvert";
             this.PnlSourceImage.ResumeLayout(false);
             this.PnlSourceImage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbSourceImagePreview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,9 +320,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtResultSavePath;
         private System.Windows.Forms.Button BtnBrowseResultSaveFolder;
-        private System.Windows.Forms.Button BtnShowResultImage;
+        private System.Windows.Forms.Button BtnShowResultsFolder;
         private System.Windows.Forms.Button BtnConvert;
         private System.Windows.Forms.Label LbConvertStatus;
+        private System.Windows.Forms.FolderBrowserDialog FbdSaveFolder;
+        private System.Windows.Forms.TextBox TxtResultImageName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ErrorProvider ErrMain;
+        private System.Windows.Forms.OpenFileDialog OfdBrowseImage;
     }
 }
 
