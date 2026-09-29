@@ -138,7 +138,7 @@
             this.CbTargetImageFormat.Name = "CbTargetImageFormat";
             this.CbTargetImageFormat.Size = new System.Drawing.Size(91, 29);
             this.CbTargetImageFormat.Sorted = true;
-            this.CbTargetImageFormat.TabIndex = 0;
+            this.CbTargetImageFormat.TabIndex = 1;
             // 
             // label2
             // 
@@ -182,7 +182,7 @@
             this.BtnBrowseResultSaveFolder.Location = new System.Drawing.Point(465, 280);
             this.BtnBrowseResultSaveFolder.Name = "BtnBrowseResultSaveFolder";
             this.BtnBrowseResultSaveFolder.Size = new System.Drawing.Size(38, 29);
-            this.BtnBrowseResultSaveFolder.TabIndex = 2;
+            this.BtnBrowseResultSaveFolder.TabIndex = 5;
             this.BtnBrowseResultSaveFolder.Text = "...";
             this.BtnBrowseResultSaveFolder.UseVisualStyleBackColor = false;
             this.BtnBrowseResultSaveFolder.Click += new System.EventHandler(this.BtnBrowseResultSaveFolder_Click);
@@ -200,7 +200,7 @@
             this.BtnShowResultsFolder.Location = new System.Drawing.Point(384, 318);
             this.BtnShowResultsFolder.Name = "BtnShowResultsFolder";
             this.BtnShowResultsFolder.Size = new System.Drawing.Size(119, 35);
-            this.BtnShowResultsFolder.TabIndex = 3;
+            this.BtnShowResultsFolder.TabIndex = 4;
             this.BtnShowResultsFolder.Text = "Show Results";
             this.BtnShowResultsFolder.UseVisualStyleBackColor = false;
             this.BtnShowResultsFolder.Click += new System.EventHandler(this.BtnShowResultImage_Click);
@@ -219,7 +219,7 @@
             this.BtnConvert.Location = new System.Drawing.Point(12, 318);
             this.BtnConvert.Name = "BtnConvert";
             this.BtnConvert.Size = new System.Drawing.Size(91, 35);
-            this.BtnConvert.TabIndex = 1;
+            this.BtnConvert.TabIndex = 3;
             this.BtnConvert.Text = "Convert";
             this.BtnConvert.UseVisualStyleBackColor = false;
             this.BtnConvert.Click += new System.EventHandler(this.BtnConvert_Click);
@@ -252,7 +252,7 @@
             this.TxtResultImageName.Name = "TxtResultImageName";
             this.TxtResultImageName.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.TxtResultImageName.Size = new System.Drawing.Size(152, 29);
-            this.TxtResultImageName.TabIndex = 6;
+            this.TxtResultImageName.TabIndex = 2;
             this.TxtResultImageName.WordWrap = false;
             this.TxtResultImageName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtResultImageName_Validating);
             // 

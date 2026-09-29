@@ -36,6 +36,8 @@ namespace EasyConvert
                     ImageToConvert = Image.FromFile(value);
                     _ImageToConvertPath = value;
                     TxtSourceImageName.Text = _ImageToConvertPath;
+                    TxtResultImageName.Text = 
+                        Path.GetFileNameWithoutExtension(_ImageToConvertPath);
                 }
                 catch
                 {
@@ -71,7 +73,7 @@ namespace EasyConvert
             get
             {
                 return
-                    Path.Combine(SaveFolderPath, TxtResultImageName.Text + $".{CbTargetImageFormat.SelectedItem}");
+                    Path.Combine(SaveFolderPath, TxtResultImageName.Text + CbTargetImageFormat.SelectedItem.ToString());
             }
         }
 
@@ -93,12 +95,7 @@ namespace EasyConvert
 
         private void InitializeCbTargetFormat()
         {
-            CbTargetImageFormat.Items.Add(ImageFormat.Bmp);
-            CbTargetImageFormat.Items.Add(ImageFormat.Gif);
-            CbTargetImageFormat.Items.Add(ImageFormat.Icon);
-            CbTargetImageFormat.Items.Add(ImageFormat.Jpeg);
-            CbTargetImageFormat.Items.Add(ImageFormat.Png);
-            CbTargetImageFormat.Items.Add(ImageFormat.Tiff);
+            CbTargetImageFormat.Items.AddRange(ImageFormats.GetSupportedExtentions());
             
             CbTargetImageFormat.SelectedIndex = 0;
         }
@@ -144,13 +141,14 @@ namespace EasyConvert
     
         private void InitializeOfdBrowseImage()
         {
-            OfdBrowseImage.Filter = "All Image Files (*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.tiff;*.tif;*.webp)|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.tiff;*.tif;*.webp|" +
+            OfdBrowseImage.Filter = "All Image Files (*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.tiff;*.tif;*.webp)|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.tiff;*.tif;*.webp;*.ico|" +
                                     "PNG Portable Network Graphics (*.png)|*.png|" +
                                     "JPEG Image (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
                                     "GIF Graphics Interchange Format (*.gif)|*.gif|" +
                                     "BMP Windows Bitmap (*.bmp)|*.bmp|" +
                                     "TIFF Tagged Image File Format (*.tiff;*.tif)|*.tiff;*.tif|" +
-                                    "WebP Image (*.webp)|*.webp";
+                                    "WebP Image (*.webp)|*.webp|" +
+                                    "Icon Files (*.ico)|*.ico";
 
             OfdBrowseImage.InitialDirectory =
                 Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
@@ -201,17 +199,17 @@ namespace EasyConvert
                     return;
                 }
 
-                Core.ImageConvertor.EnCovertResult ConvertResult =
+                Core.ImageConvertor.EnConvertResult ConvertResult =
                     Core.ImageConvertor.ConvertImage(ImageToConvert,
-                    (ImageFormat)CbTargetImageFormat.SelectedItem,
+                    ImageFormats.GetFormatFromExtension(CbTargetImageFormat.SelectedItem.ToString()),
                     FullResultImagePath);
 
                 switch (ConvertResult)
                 {
-                    case ImageConvertor.EnCovertResult.Successful:
+                    case ImageConvertor.EnConvertResult.Successful:
                         MessageBox.Show("Image converted successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
-                    case ImageConvertor.EnCovertResult.FileAlreadyExists:
+                    case ImageConvertor.EnConvertResult.FileAlreadyExists:
                         MessageBox.Show("Cannot convert image because the name already exists.", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                     default:

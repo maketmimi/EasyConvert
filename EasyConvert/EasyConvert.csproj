@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FC91ECE6-73B5-4ADA-B334-8B573EA47423}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>EasyConvert</RootNamespace>
     <AssemblyName>EasyConvert</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\IcoBuilder.cs" />
     <Compile Include="Core\ImageConvertor.cs" />
+    <Compile Include="Core\ImageFormats.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +81,7 @@
     <Content Include="Assets\icon.ico" />
     <Content Include="Assets\icon.png" />
     <Content Include="icon.ico" />
+    <Content Include="NewIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
