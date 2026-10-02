@@ -40,7 +40,7 @@ namespace EasyConvert.Core
                 IconImageData = IconImageStream.ToArray();
 
                 IconImageBitmap.Dispose();
-                IconImageStream.Dispose();
+                IconImageStream.Close();
             }
         }
 
@@ -72,7 +72,6 @@ namespace EasyConvert.Core
             Writer.Write((ushort)_LIconImages.Count); // Number of images 2 bytes
 
             Writer.Close();
-            Writer.Dispose();
 
             return IcoHeader;
         }
@@ -125,15 +124,20 @@ namespace EasyConvert.Core
     
         public bool Save(string FileName)
         {
+            FileStream IconFileStream = null;
             try
             {
-                FileStream IconFileStream = new FileStream(FileName, FileMode.Create);
+                IconFileStream = new FileStream(FileName, FileMode.Create);
 
                 return Save(IconFileStream);
             }
             catch
             {
                 return false;
+            }
+            finally
+            {
+                IconFileStream?.Close();
             }
         }
     }
