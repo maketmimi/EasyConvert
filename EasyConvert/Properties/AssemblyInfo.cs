@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EasyConvert")]
-[assembly: AssemblyDescription("simple app to convert image formats")]
+[assembly: AssemblyDescription("Easy to use utility to convert images to different supported formats.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Malek Altamimi")]
 [assembly: AssemblyProduct("EasyConvert")]

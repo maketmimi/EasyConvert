@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using EasyConvert.CLI;
+using System;
 using System.Windows.Forms;
 
 namespace EasyConvert
@@ -12,8 +10,18 @@ namespace EasyConvert
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            if (args != null && args.Length > 0)
+            {
+                if (CliHelpers.EnterCliMode())
+                {
+                    CliUtility.Run(args);
+                }
+
+                return;
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain());

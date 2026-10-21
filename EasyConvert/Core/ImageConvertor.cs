@@ -12,7 +12,8 @@ namespace EasyConvert.Core
             Successful,
             Failed_FileAlreadyExists,
             Failed_UnknownError,
-            Failed_InvalidPath
+            Failed_InvalidPath,
+            Failed_NotSupportedTargetFormat
         }
 
         private static Bitmap CopyImage(Image ImageToCopy)
@@ -59,7 +60,9 @@ namespace EasyConvert.Core
 
         public static EnConvertResult ConvertImage(Image ImageToConvert, ImageFormats TargetFormat, string TargetName)
         {
-            if (ImageToConvert == null || TargetFormat == null || string.IsNullOrWhiteSpace(TargetName)) return EnConvertResult.Failed_UnknownError;
+            if (ImageToConvert == null || string.IsNullOrWhiteSpace(TargetName)) return EnConvertResult.Failed_UnknownError;
+
+            if (TargetFormat == null) return EnConvertResult.Failed_NotSupportedTargetFormat;
 
             if (File.Exists(TargetName)) return EnConvertResult.Failed_FileAlreadyExists;
 
@@ -76,7 +79,7 @@ namespace EasyConvert.Core
                 case ImageFormats.EnImageFormats.Ico:
                     return ConvertImageToIco(ImageToConvert, TargetName);
                 default:
-                    return EnConvertResult.Failed_UnknownError; // not implemented yet       
+                    return EnConvertResult.Failed_NotSupportedTargetFormat; // not implemented yet       
             }
         } 
     }

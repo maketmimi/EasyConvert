@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.PnlSourceImage = new System.Windows.Forms.Panel();
+            this.CsmImageControl = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.browseImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnBrowseSourceImage = new System.Windows.Forms.Button();
             this.TxtSourceImageName = new System.Windows.Forms.TextBox();
             this.PbSourceImagePreview = new System.Windows.Forms.PictureBox();
@@ -49,13 +52,10 @@
             this.OfdBrowseImage = new System.Windows.Forms.OpenFileDialog();
             this.LibMalekGithub = new System.Windows.Forms.LinkLabel();
             this.ImgMain = new System.Windows.Forms.ImageList(this.components);
-            this.CsmImageControl = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.browseImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PnlSourceImage.SuspendLayout();
+            this.CsmImageControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbSourceImagePreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrMain)).BeginInit();
-            this.CsmImageControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlSourceImage
@@ -73,6 +73,31 @@
             this.PnlSourceImage.Name = "PnlSourceImage";
             this.PnlSourceImage.Size = new System.Drawing.Size(491, 245);
             this.PnlSourceImage.TabIndex = 0;
+            // 
+            // CsmImageControl
+            // 
+            this.CsmImageControl.BackColor = System.Drawing.Color.White;
+            this.CsmImageControl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CsmImageControl.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetToolStripMenuItem,
+            this.browseImageToolStripMenuItem});
+            this.CsmImageControl.Name = "CsmImageControl";
+            this.CsmImageControl.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.CsmImageControl.Size = new System.Drawing.Size(182, 60);
+            // 
+            // resetToolStripMenuItem
+            // 
+            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(181, 28);
+            this.resetToolStripMenuItem.Text = "Reset";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
+            // 
+            // browseImageToolStripMenuItem
+            // 
+            this.browseImageToolStripMenuItem.Name = "browseImageToolStripMenuItem";
+            this.browseImageToolStripMenuItem.Size = new System.Drawing.Size(181, 28);
+            this.browseImageToolStripMenuItem.Text = "Browse Image";
+            this.browseImageToolStripMenuItem.Click += new System.EventHandler(this.BtnBrowseSourceImage_Click);
             // 
             // BtnBrowseSourceImage
             // 
@@ -198,6 +223,7 @@
             // 
             this.BtnShowResultsFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnShowResultsFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnShowResultsFolder.CausesValidation = false;
             this.BtnShowResultsFolder.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnShowResultsFolder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.BtnShowResultsFolder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
@@ -312,31 +338,6 @@
             this.ImgMain.TransparentColor = System.Drawing.Color.Transparent;
             this.ImgMain.Images.SetKeyName(0, "MalekAltamimi_Logo.png");
             // 
-            // CsmImageControl
-            // 
-            this.CsmImageControl.BackColor = System.Drawing.Color.White;
-            this.CsmImageControl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CsmImageControl.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resetToolStripMenuItem,
-            this.browseImageToolStripMenuItem});
-            this.CsmImageControl.Name = "CsmImageControl";
-            this.CsmImageControl.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.CsmImageControl.Size = new System.Drawing.Size(182, 82);
-            // 
-            // resetToolStripMenuItem
-            // 
-            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(181, 28);
-            this.resetToolStripMenuItem.Text = "Reset";
-            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
-            // 
-            // browseImageToolStripMenuItem
-            // 
-            this.browseImageToolStripMenuItem.Name = "browseImageToolStripMenuItem";
-            this.browseImageToolStripMenuItem.Size = new System.Drawing.Size(181, 28);
-            this.browseImageToolStripMenuItem.Text = "Browse Image";
-            this.browseImageToolStripMenuItem.Click += new System.EventHandler(this.BtnBrowseSourceImage_Click);
-            // 
             // FrmMain
             // 
             this.AcceptButton = this.BtnConvert;
@@ -363,9 +364,9 @@
             this.Text = "EasyConvert";
             this.PnlSourceImage.ResumeLayout(false);
             this.PnlSourceImage.PerformLayout();
+            this.CsmImageControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbSourceImagePreview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrMain)).EndInit();
-            this.CsmImageControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

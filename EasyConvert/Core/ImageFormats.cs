@@ -55,6 +55,8 @@ namespace EasyConvert.Core
         /// </returns>
         public static ImageFormats GetFormatFromExtension(string Extension)
         {
+            Extension = Extension.ToLower();
+
             foreach (var format in SupportedFormats)
             {
                 if (format.Extensions.Contains(Extension))
