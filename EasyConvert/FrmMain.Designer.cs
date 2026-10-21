@@ -230,9 +230,10 @@
             // 
             this.LbConvertStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LbConvertStatus.AutoSize = true;
+            this.LbConvertStatus.BackColor = System.Drawing.Color.Transparent;
             this.LbConvertStatus.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbConvertStatus.ForeColor = System.Drawing.Color.Black;
-            this.LbConvertStatus.Location = new System.Drawing.Point(141, 348);
+            this.LbConvertStatus.Location = new System.Drawing.Point(133, 348);
             this.LbConvertStatus.Name = "LbConvertStatus";
             this.LbConvertStatus.Size = new System.Drawing.Size(0, 27);
             this.LbConvertStatus.TabIndex = 5;
@@ -298,6 +299,7 @@
             this.LibMalekGithub.Text = "Developed by Malek Altamimi";
             this.LibMalekGithub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LibMalekGithub.VisitedLinkColor = System.Drawing.Color.Black;
+            this.LibMalekGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LibMalekGithub_LinkClicked);
             // 
             // ImgMain
             // 
@@ -316,7 +318,6 @@
             this.Controls.Add(this.LibMalekGithub);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TxtResultImageName);
-            this.Controls.Add(this.LbConvertStatus);
             this.Controls.Add(this.BtnConvert);
             this.Controls.Add(this.BtnShowResultsFolder);
             this.Controls.Add(this.BtnBrowseResultSaveFolder);
@@ -325,6 +326,7 @@
             this.Controls.Add(this.CbTargetImageFormat);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PnlSourceImage);
+            this.Controls.Add(this.LbConvertStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(531, 455);
             this.Name = "FrmMain";

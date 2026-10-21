@@ -1,4 +1,5 @@
 ﻿using EasyConvert.Core;
+using EasyConvert.Properties;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -222,6 +223,12 @@ namespace EasyConvert
                 this.Enabled = true;
                 SetStatusToReady();
             }
+        }
+
+        private void LibMalekGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Resources.MalekAltamimiPortfolioLink);
+            LibMalekGithub.LinkVisited = true;
         }
     }
 }
