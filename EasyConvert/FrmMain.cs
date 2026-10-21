@@ -32,6 +32,13 @@ namespace EasyConvert
         {
             set
             {
+                // reset the image
+                if (value == null)
+                {
+                    ResetImage();
+                    return;
+                }
+
                 try
                 {
                     ImageToConvert = Image.FromFile(value);
@@ -39,6 +46,7 @@ namespace EasyConvert
                     TxtSourceImageName.Text = _ImageToConvertPath;
                     TxtResultImageName.Text = 
                         Path.GetFileNameWithoutExtension(_ImageToConvertPath);
+                    SaveFolderPath = Path.GetDirectoryName(_ImageToConvertPath);
                 }
                 catch
                 {
@@ -60,7 +68,11 @@ namespace EasyConvert
                 _ImageToConvert?.Dispose();
                 _ImageToConvert = value;
                 PbSourceImagePreview.Image = _ImageToConvert;
-                SetStatusToReady();
+
+                if (value == null)
+                    ResetStauts();
+                else
+                    SetStatusToReady();
             }
 
             get
@@ -85,6 +97,20 @@ namespace EasyConvert
             InitializeResultSaveFolder();
             InitializeFbdSaveFolder();
             InitializeOfdBrowseImage();
+        }
+
+        private void ResetImage()
+        {
+            ImageToConvert = null;
+            _ImageToConvertPath = null;
+            TxtSourceImageName.Text = "Please select an image to convert";
+            TxtResultImageName.Clear();
+            BtnConvert.Enabled = false;
+        }
+
+        private void ResetStauts()
+        {
+            LbConvertStatus.Text = String.Empty;
         }
 
         private void SetStatusToReady()
@@ -210,8 +236,11 @@ namespace EasyConvert
                     case ImageConvertor.EnConvertResult.Successful:
                         MessageBox.Show("Image converted successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
-                    case ImageConvertor.EnConvertResult.FileAlreadyExists:
+                    case ImageConvertor.EnConvertResult.Failed_FileAlreadyExists:
                         MessageBox.Show("Cannot convert image because the name already exists.", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case ImageConvertor.EnConvertResult.Failed_InvalidPath:
+                        MessageBox.Show("Cannot convert image because the saving folder path is Invalid", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                     default:
                         MessageBox.Show("Cannot Convert Image!", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -221,7 +250,10 @@ namespace EasyConvert
             finally
             {
                 this.Enabled = true;
-                SetStatusToReady();
+                if (ImageToConvert != null)
+                    SetStatusToReady();
+                else
+                    ResetStauts();
             }
         }
 
@@ -229,6 +261,11 @@ namespace EasyConvert
         {
             System.Diagnostics.Process.Start(Resources.MalekAltamimiPortfolioLink);
             LibMalekGithub.LinkVisited = true;
+        }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageToConvertPath = null;
         }
     }
 }

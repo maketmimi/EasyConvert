@@ -49,9 +49,13 @@
             this.OfdBrowseImage = new System.Windows.Forms.OpenFileDialog();
             this.LibMalekGithub = new System.Windows.Forms.LinkLabel();
             this.ImgMain = new System.Windows.Forms.ImageList(this.components);
+            this.CsmImageControl = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.browseImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PnlSourceImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbSourceImagePreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrMain)).BeginInit();
+            this.CsmImageControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlSourceImage
@@ -61,6 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PnlSourceImage.BackColor = System.Drawing.Color.Transparent;
             this.PnlSourceImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PnlSourceImage.ContextMenuStrip = this.CsmImageControl;
             this.PnlSourceImage.Controls.Add(this.BtnBrowseSourceImage);
             this.PnlSourceImage.Controls.Add(this.TxtSourceImageName);
             this.PnlSourceImage.Controls.Add(this.PbSourceImagePreview);
@@ -307,6 +312,31 @@
             this.ImgMain.TransparentColor = System.Drawing.Color.Transparent;
             this.ImgMain.Images.SetKeyName(0, "MalekAltamimi_Logo.png");
             // 
+            // CsmImageControl
+            // 
+            this.CsmImageControl.BackColor = System.Drawing.Color.White;
+            this.CsmImageControl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CsmImageControl.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetToolStripMenuItem,
+            this.browseImageToolStripMenuItem});
+            this.CsmImageControl.Name = "CsmImageControl";
+            this.CsmImageControl.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.CsmImageControl.Size = new System.Drawing.Size(182, 82);
+            // 
+            // resetToolStripMenuItem
+            // 
+            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(181, 28);
+            this.resetToolStripMenuItem.Text = "Reset";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
+            // 
+            // browseImageToolStripMenuItem
+            // 
+            this.browseImageToolStripMenuItem.Name = "browseImageToolStripMenuItem";
+            this.browseImageToolStripMenuItem.Size = new System.Drawing.Size(181, 28);
+            this.browseImageToolStripMenuItem.Text = "Browse Image";
+            this.browseImageToolStripMenuItem.Click += new System.EventHandler(this.BtnBrowseSourceImage_Click);
+            // 
             // FrmMain
             // 
             this.AcceptButton = this.BtnConvert;
@@ -335,6 +365,7 @@
             this.PnlSourceImage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbSourceImagePreview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrMain)).EndInit();
+            this.CsmImageControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,6 +392,9 @@
         private System.Windows.Forms.OpenFileDialog OfdBrowseImage;
         private System.Windows.Forms.LinkLabel LibMalekGithub;
         private System.Windows.Forms.ImageList ImgMain;
+        private System.Windows.Forms.ContextMenuStrip CsmImageControl;
+        private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem browseImageToolStripMenuItem;
     }
 }
 

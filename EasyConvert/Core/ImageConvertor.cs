@@ -10,8 +10,9 @@ namespace EasyConvert.Core
         public enum EnConvertResult
         {
             Successful,
-            FileAlreadyExists,
-            Failed
+            Failed_FileAlreadyExists,
+            Failed_UnknownError,
+            Failed_InvalidPath
         }
 
         private static Bitmap CopyImage(Image ImageToCopy)
@@ -35,7 +36,7 @@ namespace EasyConvert.Core
             }
             catch
             {
-                return EnConvertResult.Failed;
+                return EnConvertResult.Failed_UnknownError;
             }
         }
 
@@ -53,14 +54,16 @@ namespace EasyConvert.Core
             if (icoBuilder.Save(TargetName))
                 return EnConvertResult.Successful;
             else
-                return EnConvertResult.Failed;
+                return EnConvertResult.Failed_UnknownError;
         }
 
         public static EnConvertResult ConvertImage(Image ImageToConvert, ImageFormats TargetFormat, string TargetName)
         {
-            if (ImageToConvert == null || TargetFormat == null || string.IsNullOrWhiteSpace(TargetName)) return EnConvertResult.Failed;
+            if (ImageToConvert == null || TargetFormat == null || string.IsNullOrWhiteSpace(TargetName)) return EnConvertResult.Failed_UnknownError;
 
-            if (File.Exists(TargetName)) return EnConvertResult.FileAlreadyExists;
+            if (File.Exists(TargetName)) return EnConvertResult.Failed_FileAlreadyExists;
+
+            if (!Directory.Exists(Path.GetDirectoryName(TargetName))) return EnConvertResult.Failed_InvalidPath;
 
             switch (TargetFormat.RawFormat)
             {
@@ -73,7 +76,7 @@ namespace EasyConvert.Core
                 case ImageFormats.EnImageFormats.Ico:
                     return ConvertImageToIco(ImageToConvert, TargetName);
                 default:
-                    return EnConvertResult.Failed; // not implemented yet       
+                    return EnConvertResult.Failed_UnknownError; // not implemented yet       
             }
         } 
     }
