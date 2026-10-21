@@ -47,6 +47,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.ErrMain = new System.Windows.Forms.ErrorProvider(this.components);
             this.OfdBrowseImage = new System.Windows.Forms.OpenFileDialog();
+            this.LibMalekGithub = new System.Windows.Forms.LinkLabel();
+            this.ImgMain = new System.Windows.Forms.ImageList(this.components);
             this.PnlSourceImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbSourceImagePreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrMain)).BeginInit();
@@ -64,7 +66,7 @@
             this.PnlSourceImage.Controls.Add(this.PbSourceImagePreview);
             this.PnlSourceImage.Location = new System.Drawing.Point(12, 12);
             this.PnlSourceImage.Name = "PnlSourceImage";
-            this.PnlSourceImage.Size = new System.Drawing.Size(491, 219);
+            this.PnlSourceImage.Size = new System.Drawing.Size(491, 245);
             this.PnlSourceImage.TabIndex = 0;
             // 
             // BtnBrowseSourceImage
@@ -77,7 +79,7 @@
             this.BtnBrowseSourceImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBrowseSourceImage.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBrowseSourceImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.BtnBrowseSourceImage.Location = new System.Drawing.Point(185, 177);
+            this.BtnBrowseSourceImage.Location = new System.Drawing.Point(185, 203);
             this.BtnBrowseSourceImage.Name = "BtnBrowseSourceImage";
             this.BtnBrowseSourceImage.Size = new System.Drawing.Size(119, 35);
             this.BtnBrowseSourceImage.TabIndex = 0;
@@ -92,7 +94,7 @@
             this.TxtSourceImageName.BackColor = System.Drawing.Color.White;
             this.TxtSourceImageName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtSourceImageName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSourceImageName.Location = new System.Drawing.Point(3, 149);
+            this.TxtSourceImageName.Location = new System.Drawing.Point(3, 175);
             this.TxtSourceImageName.Name = "TxtSourceImageName";
             this.TxtSourceImageName.ReadOnly = true;
             this.TxtSourceImageName.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -110,7 +112,7 @@
             this.PbSourceImagePreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PbSourceImagePreview.Location = new System.Drawing.Point(138, 13);
             this.PbSourceImagePreview.Name = "PbSourceImagePreview";
-            this.PbSourceImagePreview.Size = new System.Drawing.Size(213, 130);
+            this.PbSourceImagePreview.Size = new System.Drawing.Size(213, 156);
             this.PbSourceImagePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PbSourceImagePreview.TabIndex = 0;
             this.PbSourceImagePreview.TabStop = false;
@@ -121,7 +123,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.label1.Location = new System.Drawing.Point(7, 239);
+            this.label1.Location = new System.Drawing.Point(7, 265);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 27);
             this.label1.TabIndex = 1;
@@ -134,7 +136,7 @@
             this.CbTargetImageFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbTargetImageFormat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbTargetImageFormat.FormattingEnabled = true;
-            this.CbTargetImageFormat.Location = new System.Drawing.Point(132, 238);
+            this.CbTargetImageFormat.Location = new System.Drawing.Point(132, 264);
             this.CbTargetImageFormat.Name = "CbTargetImageFormat";
             this.CbTargetImageFormat.Size = new System.Drawing.Size(91, 29);
             this.CbTargetImageFormat.Sorted = true;
@@ -146,7 +148,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.label2.Location = new System.Drawing.Point(7, 278);
+            this.label2.Location = new System.Drawing.Point(7, 304);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 27);
             this.label2.TabIndex = 3;
@@ -160,7 +162,7 @@
             this.TxtResultSavePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtResultSavePath.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtResultSavePath.ForeColor = System.Drawing.Color.Black;
-            this.TxtResultSavePath.Location = new System.Drawing.Point(132, 280);
+            this.TxtResultSavePath.Location = new System.Drawing.Point(132, 306);
             this.TxtResultSavePath.Name = "TxtResultSavePath";
             this.TxtResultSavePath.ReadOnly = true;
             this.TxtResultSavePath.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -179,7 +181,7 @@
             this.BtnBrowseResultSaveFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBrowseResultSaveFolder.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBrowseResultSaveFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.BtnBrowseResultSaveFolder.Location = new System.Drawing.Point(465, 280);
+            this.BtnBrowseResultSaveFolder.Location = new System.Drawing.Point(465, 306);
             this.BtnBrowseResultSaveFolder.Name = "BtnBrowseResultSaveFolder";
             this.BtnBrowseResultSaveFolder.Size = new System.Drawing.Size(38, 29);
             this.BtnBrowseResultSaveFolder.TabIndex = 5;
@@ -197,7 +199,7 @@
             this.BtnShowResultsFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnShowResultsFolder.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnShowResultsFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.BtnShowResultsFolder.Location = new System.Drawing.Point(384, 318);
+            this.BtnShowResultsFolder.Location = new System.Drawing.Point(384, 344);
             this.BtnShowResultsFolder.Name = "BtnShowResultsFolder";
             this.BtnShowResultsFolder.Size = new System.Drawing.Size(119, 35);
             this.BtnShowResultsFolder.TabIndex = 4;
@@ -216,9 +218,9 @@
             this.BtnConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnConvert.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnConvert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.BtnConvert.Location = new System.Drawing.Point(12, 318);
+            this.BtnConvert.Location = new System.Drawing.Point(12, 344);
             this.BtnConvert.Name = "BtnConvert";
-            this.BtnConvert.Size = new System.Drawing.Size(91, 35);
+            this.BtnConvert.Size = new System.Drawing.Size(119, 35);
             this.BtnConvert.TabIndex = 3;
             this.BtnConvert.Text = "Convert";
             this.BtnConvert.UseVisualStyleBackColor = false;
@@ -230,7 +232,7 @@
             this.LbConvertStatus.AutoSize = true;
             this.LbConvertStatus.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbConvertStatus.ForeColor = System.Drawing.Color.Black;
-            this.LbConvertStatus.Location = new System.Drawing.Point(109, 322);
+            this.LbConvertStatus.Location = new System.Drawing.Point(141, 348);
             this.LbConvertStatus.Name = "LbConvertStatus";
             this.LbConvertStatus.Size = new System.Drawing.Size(0, 27);
             this.LbConvertStatus.TabIndex = 5;
@@ -248,7 +250,7 @@
             this.TxtResultImageName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtResultImageName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtResultImageName.ForeColor = System.Drawing.Color.Black;
-            this.TxtResultImageName.Location = new System.Drawing.Point(307, 239);
+            this.TxtResultImageName.Location = new System.Drawing.Point(307, 265);
             this.TxtResultImageName.Name = "TxtResultImageName";
             this.TxtResultImageName.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.TxtResultImageName.Size = new System.Drawing.Size(152, 29);
@@ -262,7 +264,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.label3.Location = new System.Drawing.Point(233, 239);
+            this.label3.Location = new System.Drawing.Point(233, 265);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 27);
             this.label3.TabIndex = 7;
@@ -277,6 +279,32 @@
             // 
             this.OfdBrowseImage.Title = "Browse Image";
             // 
+            // LibMalekGithub
+            // 
+            this.LibMalekGithub.ActiveLinkColor = System.Drawing.Color.Black;
+            this.LibMalekGithub.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.LibMalekGithub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LibMalekGithub.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LibMalekGithub.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LibMalekGithub.ImageKey = "MalekAltamimi_Logo.png";
+            this.LibMalekGithub.ImageList = this.ImgMain;
+            this.LibMalekGithub.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.LibMalekGithub.LinkColor = System.Drawing.Color.Black;
+            this.LibMalekGithub.Location = new System.Drawing.Point(131, 386);
+            this.LibMalekGithub.Name = "LibMalekGithub";
+            this.LibMalekGithub.Size = new System.Drawing.Size(252, 27);
+            this.LibMalekGithub.TabIndex = 8;
+            this.LibMalekGithub.TabStop = true;
+            this.LibMalekGithub.Text = "Developed by Malek Altamimi";
+            this.LibMalekGithub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LibMalekGithub.VisitedLinkColor = System.Drawing.Color.Black;
+            // 
+            // ImgMain
+            // 
+            this.ImgMain.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImgMain.ImageStream")));
+            this.ImgMain.TransparentColor = System.Drawing.Color.Transparent;
+            this.ImgMain.Images.SetKeyName(0, "MalekAltamimi_Logo.png");
+            // 
             // FrmMain
             // 
             this.AcceptButton = this.BtnConvert;
@@ -284,7 +312,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(515, 360);
+            this.ClientSize = new System.Drawing.Size(515, 416);
+            this.Controls.Add(this.LibMalekGithub);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TxtResultImageName);
             this.Controls.Add(this.LbConvertStatus);
@@ -297,7 +326,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PnlSourceImage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(531, 399);
+            this.MinimumSize = new System.Drawing.Size(531, 455);
             this.Name = "FrmMain";
             this.Text = "EasyConvert";
             this.PnlSourceImage.ResumeLayout(false);
@@ -328,6 +357,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider ErrMain;
         private System.Windows.Forms.OpenFileDialog OfdBrowseImage;
+        private System.Windows.Forms.LinkLabel LibMalekGithub;
+        private System.Windows.Forms.ImageList ImgMain;
     }
 }
 
