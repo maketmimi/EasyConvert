@@ -88,7 +88,7 @@ The class supports dimensions from 1 to 256 pixels per side; a dimension of `0` 
 
 ### Example
 
-The following example demonstrates the core API:
+The following example demonstrates how IcoBuilder works:
 
 ```csharp
 Image image = Image.FromFile("image.png");
@@ -111,6 +111,8 @@ finally
 This example creates a 256 × 256 PNG-encoded image entry in an ICO file. Additional images can be added at other dimensions before saving to include multiple representations.
 
 The same class can be reused in other C# applications that need to construct ICO files, independently of Easy Convert.
+
+Check it out **[here](https://gist.github.com/maketmimi/f293d7ba1821eff5d1486981dc464915)**.
 
 ## Supported Formats
 
@@ -167,7 +169,7 @@ The goal was to build a useful everyday tool while exploring these concepts in p
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Acknowledgments
 
