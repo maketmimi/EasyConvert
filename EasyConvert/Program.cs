@@ -14,10 +14,11 @@ namespace EasyConvert
         {
             if (args != null && args.Length > 0)
             {
-                if (CliHelpers.EnterCliMode())
-                {
-                    CliUtility.Run(args);
-                }
+                CliHelpers.EnterCliMode(); // this might fail
+
+                // run the cli even if we do not have a console
+
+                CliUtility.Run(args);
 
                 return;
             }
